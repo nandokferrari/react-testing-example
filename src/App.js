@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { render } from '@testing-library/react';
+import Dropdown from './dropdown';
+import './App.scss';
+
+let title = 'Selecione seu pokemon';
+let options = ['Charmander', 'Squirtle', 'Bulbasaur'];
+let callback = () => {};
 
 function App() {
+  const changeSelection = (value) => {
+    console.log(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Dropdown title={title} options={options} callback={changeSelection} />
     </div>
   );
 }
